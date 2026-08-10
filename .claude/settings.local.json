@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where node:*)",
+      "Bash(where npm:*)",
+      "Bash(where python:*)",
+      "Bash(where npx:*)",
+      "Bash(node -e \"require\\(''http-server''\\)\")"
+    ]
+  }
+}
