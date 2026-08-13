@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marchem — Where Strategy Meets Chemistry</title>
+  <!-- Favicon: gradient hexagon, no text -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
   <!-- CDN: Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
@@ -740,133 +742,157 @@
     }
 
     /* ============================================================
-       === PORTFOLIO SECTION ===
+       === PRICING SECTION ===
     ============================================================ */
-    #portfolio {
+    #pricing {
       padding: 120px 0;
     }
 
-    .portfolio-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 48px;
-      flex-wrap: wrap;
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .pricing-header .section-desc {
+      margin: 0 auto;
+    }
+
+    .pricing-section-label {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      margin-top: 56px;
+    }
+
+    .pricing-websites,
+    .pricing-maintenance {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
-    .filter-btns {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      padding: 8px 20px;
-      border-radius: 100px;
-      border: 1.5px solid var(--border-subtle);
-      background: transparent;
-      color: var(--text-secondary);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      border-color: var(--neon-purple);
-      color: var(--text-primary);
-      background: rgba(155,45,255,0.1);
-    }
-
-    .portfolio-grid {
+    .pricing-tiers {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
-    /* 3D tilt card */
-    .project-card {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.1s ease, box-shadow var(--transition-mid);
-      will-change: transform;
-    }
-
-    .project-card.hidden {
-      display: none;
-    }
-
-    .project-card-inner {
-      position: relative;
-      height: 280px;
-      border-radius: var(--radius-md);
-      overflow: hidden;
+    .pricing-card {
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-mid), transform var(--transition-mid);
     }
 
-    .project-bg {
+    .pricing-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--border-glow);
+      background: linear-gradient(135deg, rgba(255,45,120,0.08), rgba(155,45,255,0.08), rgba(45,155,255,0.08));
+    }
+
+    .pricing-card.featured::after {
+      content: 'Most Popular';
       position: absolute;
-      inset: 0;
-      transition: transform var(--transition-slow);
+      top: 18px; right: 18px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .project-card:hover .project-bg {
-      transform: scale(1.04);
-    }
-
-    .project-shine {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 65%);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-    }
-
-    .project-card:hover .project-shine { opacity: 1; }
-
-    .project-content {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 24px;
-      background: linear-gradient(to top, rgba(10,14,26,0.95) 0%, transparent 100%);
-    }
-
-    .project-emoji {
-      font-size: 2.5rem;
-      position: absolute;
-      top: 24px; left: 24px;
-      filter: drop-shadow(0 0 12px rgba(255,255,255,0.3));
-    }
-
-    .project-tag {
-      display: inline-block;
+    .pricing-label {
       font-size: 0.7rem;
+      font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--neon-purple);
+      margin-bottom: 10px;
+    }
+
+    .pricing-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .pricing-turnaround {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--neon-pink);
+      background: rgba(255,45,120,0.1);
+      border: 1px solid rgba(255,45,120,0.25);
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 14px;
+    }
+
+    .pricing-price {
+      font-size: 2.2rem;
+      font-weight: 900;
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
       margin-bottom: 6px;
     }
 
-    .project-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      line-height: 1.3;
+    .pricing-price-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
     }
 
-    /* card gradient backgrounds */
-    .bg-grad-1 { background: linear-gradient(135deg, #1a0533, #2d1060, #0a1a3d); }
-    .bg-grad-2 { background: linear-gradient(135deg, #1a0a1f, #3d0d6b, #0d2452); }
-    .bg-grad-3 { background: linear-gradient(135deg, #0d2452, #1f0d3d, #3d1020); }
-    .bg-grad-4 { background: linear-gradient(135deg, #0a2040, #2d0070, #600030); }
-    .bg-grad-5 { background: linear-gradient(135deg, #001a3d, #1a004d, #4d002d); }
-    .bg-grad-6 { background: linear-gradient(135deg, #0d0d2a, #2a0d3d, #3d1a00); }
+    .pricing-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin-bottom: 20px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pricing-features li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .pricing-features li::before {
+      content: '→';
+      color: var(--neon-purple);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
 
     /* ============================================================
        === CONTACT SECTION ===
@@ -1109,7 +1135,8 @@
       .about-visual { order: -1; }
       #benzene-canvas { width: 260px; height: 260px; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-tiers { grid-template-columns: 1fr; }
+      .pricing-websites, .pricing-maintenance { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
     }
 
@@ -1122,10 +1149,7 @@
         letter-spacing: -0.5px;
       }
 
-      .portfolio-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .pricing-tiers { grid-template-columns: 1fr; }
     }
 
     /* ============================================================
@@ -1133,7 +1157,7 @@
     ============================================================ */
     @media (max-width: 480px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr; }
+      .pricing-tiers, .pricing-websites, .pricing-maintenance { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .footer-links { display: none; }
@@ -1195,7 +1219,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
 
@@ -1211,7 +1235,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about"     onclick="closeMobile()">About</a>
   <a href="#services"  onclick="closeMobile()">Services</a>
-  <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
   <a href="#contact"   onclick="closeMobile()">Contact</a>
 </div>
 
@@ -1239,7 +1263,7 @@
       </p>
 
       <div class="hero-ctas">
-        <a href="#portfolio" class="btn btn-primary">See Our Work</a>
+        <a href="#pricing" class="btn btn-primary">See Pricing</a>
         <a href="#contact"   class="btn btn-outline">Get in Touch</a>
       </div>
 
@@ -1430,97 +1454,131 @@
 </section>
 
 <!-- ============================================================
-     === PORTFOLIO SECTION ===
+     === PRICING SECTION ===
 ============================================================ -->
-<section id="portfolio">
+<section id="pricing">
   <div class="container">
-    <div class="portfolio-header">
-      <div>
-        <p class="section-label reveal">Our Work</p>
-        <h2 class="section-title reveal">
-          Compounds we've<br><span class="grad">created</span>
-        </h2>
-      </div>
-      <div class="filter-btns reveal">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="branding">Branding</button>
-        <button class="filter-btn" data-filter="content">Content</button>
-        <button class="filter-btn" data-filter="social">Social</button>
-      </div>
+    <div class="pricing-header">
+      <p class="section-label reveal">Transparent Pricing</p>
+      <h2 class="section-title reveal">
+        Choose your <span class="grad">formula</span>
+      </h2>
+      <p class="section-desc reveal">
+        From a lightning-fast website to a full marketing engine — pick the plan that fits your business.
+      </p>
     </div>
 
-    <div class="portfolio-grid" id="portfolioGrid">
+    <!-- Website Services -->
+    <p class="pricing-section-label reveal">Website Services</p>
+    <div class="pricing-websites">
 
-      <div class="project-card reveal" data-category="branding">
-        <div class="project-card-inner">
-          <div class="project-bg bg-grad-1"></div>
-          <div class="project-shine"></div>
-          <span class="project-emoji">⚗️</span>
-          <div class="project-content">
-            <span class="project-tag">Branding</span>
-            <h3 class="project-title">NovaPeak Identity System</h3>
-          </div>
-        </div>
+      <div class="pricing-card reveal">
+        <p class="pricing-label">Static Website</p>
+        <h3 class="pricing-title">Static Website</h3>
+        <div class="pricing-price">Custom</div>
+        <p class="pricing-price-note">Tailored quote to your needs</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Clean, fast &amp; beautifully designed</li>
+          <li>Perfect online presence without complexity</li>
+          <li>Mobile-responsive &amp; SEO-ready</li>
+          <li>Ideal for portfolios, landing pages &amp; brochure sites</li>
+        </ul>
       </div>
 
-      <div class="project-card reveal" data-category="content">
-        <div class="project-card-inner">
-          <div class="project-bg bg-grad-2"></div>
-          <div class="project-shine"></div>
-          <span class="project-emoji">🎬</span>
-          <div class="project-content">
-            <span class="project-tag">Content</span>
-            <h3 class="project-title">Orbit Series — Video Campaign</h3>
-          </div>
-        </div>
+      <div class="pricing-card reveal">
+        <span class="pricing-turnaround">⚡ 7-Day Turnaround</span>
+        <p class="pricing-label">Dynamic Website</p>
+        <h3 class="pricing-title">Dynamic Website</h3>
+        <div class="pricing-price">From £900</div>
+        <p class="pricing-price-note">Full-featured, delivered in 7 days</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>CMS, booking systems &amp; e-commerce</li>
+          <li>Custom functionality &amp; integrations</li>
+          <li>Mobile-responsive &amp; performance-optimised</li>
+          <li>Fast turnaround without compromise on quality</li>
+        </ul>
       </div>
 
-      <div class="project-card reveal" data-category="social">
-        <div class="project-card-inner">
-          <div class="project-bg bg-grad-3"></div>
-          <div class="project-shine"></div>
-          <span class="project-emoji">🌐</span>
-          <div class="project-content">
-            <span class="project-tag">Social</span>
-            <h3 class="project-title">Lumos — Launch Strategy</h3>
-          </div>
-        </div>
+    </div>
+
+    <!-- Monthly Retainer Plans -->
+    <p class="pricing-section-label reveal">Monthly Retainer Plans</p>
+    <div class="pricing-tiers">
+
+      <div class="pricing-card reveal">
+        <p class="pricing-label">Tier 1</p>
+        <h3 class="pricing-title">Foundation</h3>
+        <div class="pricing-price">—</div>
+        <p class="pricing-price-note">Get in touch for pricing</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Business needs analysis</li>
+          <li>Marketing strategy development</li>
+          <li>1 monthly strategy meeting</li>
+        </ul>
       </div>
 
-      <div class="project-card reveal" data-category="branding">
-        <div class="project-card-inner">
-          <div class="project-bg bg-grad-4"></div>
-          <div class="project-shine"></div>
-          <span class="project-emoji">🔮</span>
-          <div class="project-content">
-            <span class="project-tag">Branding</span>
-            <h3 class="project-title">Prism Labs — Visual Identity</h3>
-          </div>
-        </div>
+      <div class="pricing-card featured reveal">
+        <p class="pricing-label">Tier 2</p>
+        <h3 class="pricing-title">Growth</h3>
+        <div class="pricing-price">—</div>
+        <p class="pricing-price-note">Get in touch for pricing</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Foundation</li>
+          <li>Analytics dashboard &amp; reporting</li>
+          <li>Data-driven performance insights</li>
+        </ul>
       </div>
 
-      <div class="project-card reveal" data-category="content">
-        <div class="project-card-inner">
-          <div class="project-bg bg-grad-5"></div>
-          <div class="project-shine"></div>
-          <span class="project-emoji">📡</span>
-          <div class="project-content">
-            <span class="project-tag">Content</span>
-            <h3 class="project-title">Signal Magazine — Editorial</h3>
-          </div>
-        </div>
+      <div class="pricing-card reveal">
+        <p class="pricing-label">Tier 3</p>
+        <h3 class="pricing-title">Full Force</h3>
+        <div class="pricing-price">—</div>
+        <p class="pricing-price-note">Get in touch for pricing</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Foundation &amp; Growth</li>
+          <li>Social media management</li>
+          <li>Content creation &amp; scheduling</li>
+          <li>Community growth &amp; engagement</li>
+        </ul>
       </div>
 
-      <div class="project-card reveal" data-category="social">
-        <div class="project-card-inner">
-          <div class="project-bg bg-grad-6"></div>
-          <div class="project-shine"></div>
-          <span class="project-emoji">💎</span>
-          <div class="project-content">
-            <span class="project-tag">Social</span>
-            <h3 class="project-title">Krypton — Community Growth</h3>
-          </div>
-        </div>
+    </div>
+
+    <!-- Website Maintenance -->
+    <p class="pricing-section-label reveal">Website Maintenance</p>
+    <div class="pricing-maintenance">
+
+      <div class="pricing-card reveal">
+        <p class="pricing-label">Subscription</p>
+        <h3 class="pricing-title">Monthly Maintenance</h3>
+        <div class="pricing-price">Custom</div>
+        <p class="pricing-price-note">Ongoing care, billed monthly</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Regular updates &amp; security patches</li>
+          <li>Performance monitoring</li>
+          <li>Priority support response</li>
+          <li>Content updates included</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card reveal">
+        <p class="pricing-label">Pay-as-you-go</p>
+        <h3 class="pricing-title">Single Edits</h3>
+        <div class="pricing-price">Per Edit</div>
+        <p class="pricing-price-note">No commitment required</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>One-off changes &amp; fixes</li>
+          <li>Content or design updates</li>
+          <li>Quick turnaround</li>
+          <li>Billed per request</li>
+        </ul>
       </div>
 
     </div>
@@ -1619,7 +1677,7 @@
       <ul class="footer-links">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -1673,7 +1731,7 @@ const isMobile = () => window.innerWidth <= 768;
   animateRing();
 
   // Hover effect on interactive elements
-  const hoverEls = document.querySelectorAll('a, button, .element-card, .project-card, .filter-btn');
+  const hoverEls = document.querySelectorAll('a, button, .element-card, .pricing-card');
   hoverEls.forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -2104,73 +2162,6 @@ function closeMobile() {
   }
 })();
 
-/* ============================================================
-   === PORTFOLIO FILTER ===
-============================================================ */
-(function initPortfolioFilter() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards      = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Update active state
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.dataset.filter;
-
-      cards.forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
-        if (match) {
-          card.style.display = '';
-          // Animate back in
-          gsap.fromTo(card,
-            { opacity: 0, scale: 0.92 },
-            { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
-          );
-        } else {
-          gsap.to(card, {
-            opacity: 0, scale: 0.92, duration: 0.25, ease: 'power2.in',
-            onComplete: () => { card.style.display = 'none'; }
-          });
-        }
-      });
-    });
-  });
-})();
-
-/* ============================================================
-   === PORTFOLIO: 3D TILT + RADIAL SHINE ===
-============================================================ */
-(function initTilt() {
-  const cards = document.querySelectorAll('.project-card');
-
-  cards.forEach(card => {
-    const shine = card.querySelector('.project-shine');
-
-    card.addEventListener('mousemove', (e) => {
-      const rect   = card.getBoundingClientRect();
-      const cx     = rect.left + rect.width  / 2;
-      const cy     = rect.top  + rect.height / 2;
-      const dx     = (e.clientX - cx) / (rect.width  / 2); // -1 to 1
-      const dy     = (e.clientY - cy) / (rect.height / 2); // -1 to 1
-      const tiltX  = dy * -10; // degrees
-      const tiltY  = dx *  10;
-
-      card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
-
-      // Radial shine follows cursor
-      const relX  = ((e.clientX - rect.left) / rect.width)  * 100;
-      const relY  = ((e.clientY - rect.top)  / rect.height) * 100;
-      shine.style.background = `radial-gradient(circle at ${relX}% ${relY}%, rgba(255,255,255,0.1), transparent 60%)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
-      shine.style.background = '';
-    });
-  });
-})();
 
 /* ============================================================
    === CONTACT FORM: client-side feedback only ===

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Neon gradient: pink → purple → blue, matching the site palette -->
+    <linearGradient id="hex-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#ff2d78"/>
+      <stop offset="50%"  stop-color="#a020f0"/>
+      <stop offset="100%" stop-color="#00c8ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Flat-top hexagon centred in the 100×100 viewport -->
+  <polygon
+    points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5"
+    fill="url(#hex-grad)"
+    stroke="none"
+  />
+</svg>
